@@ -1,9 +1,12 @@
 // テキストの表示をする為の変数
 let untyped = '';
 
+let typed ='';
+
 // 文字列を入れるspan要素を取得するための変数
 // 変数であるのは後から再代入できるようにするため
-let untypedField =document.getElementById('untyped');
+const untypedField =document.getElementById('untyped');
+const typedField =document.getElementById('typed');
 
 // テキストの中身に何を入れるかの配列
 const textLists =[
@@ -40,8 +43,13 @@ createText();
 
 // キー入力が正しいのか判定するための関数
 const keyPress = e => {
-
+  typed += untyped.substring(0,1);
+  untyped = untyped.substring(1);
+  typedField.textContent = typed;
+  untypedField.textContent = untyped;
 };
+
+
 
 const rankCheck = score => {
 
@@ -54,3 +62,6 @@ const gameOver = id => {
 const timer = () =>{
 
 }
+
+// キー入力時にkeyPress関数を呼び出す為の処理
+document.addEventListener('keypress',keyPress);
