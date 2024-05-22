@@ -1,4 +1,4 @@
-@use "../../default_mixin_setting/_main_mixin" as *;
+@use "../../../default_mixin_setting/_main_mixin" as *;
 
 body{
   font-size:6em;
@@ -22,7 +22,7 @@ body{
 }
 
 .mistyped{
-  background-color:red;
+  background-color:red !important;
 }
 
 #count,#wrap{

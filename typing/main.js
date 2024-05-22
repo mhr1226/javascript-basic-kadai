@@ -1,12 +1,14 @@
 // テキストの表示をする為の変数
 let untyped = '';
 
+// 入力済のテキストを表示する変数
 let typed ='';
 
 // 文字列を入れるspan要素を取得するための変数
 // 変数であるのは後から再代入できるようにするため
 const untypedField =document.getElementById('untyped');
 const typedField =document.getElementById('typed');
+const wrap =document.getElementById('wrap');
 
 // テキストの中身に何を入れるかの配列
 const textLists =[
@@ -29,6 +31,9 @@ const textLists =[
 // その上でその配列をspan要素に適用させるため
 // 関数で一発で呼び出せるように
 const createText = () => {
+  // 変化した文字色と文字列のリセット
+  typed ='';
+  typedField.textContent =typed;
   // Mathオブジェクトに対して、
   // floorで小数点以下を切り捨て
   /*random*textLists.lengthで
@@ -43,10 +48,31 @@ createText();
 
 // キー入力が正しいのか判定するための関数
 const keyPress = e => {
+
+  if(e.key !== untyped.substring(0,1)){
+    wrap.classList.add('mistyped');
+
+    // 色を一瞬だけ出すための関数
+    setTimeout(() =>{
+      wrap.classList.remove('mistyped');
+    },100);
+    return;
+  }
+
+  wrap.classList.remove('mistyped');
+  // タイプされたら、untypedの0~1文字目以下までの内容を
+  // typedに追加する
   typed += untyped.substring(0,1);
+  // untypedは1文字目から始まる定義
   untyped = untyped.substring(1);
+  // 入力できた文字を格納（#typedと連動）
   typedField.textContent = typed;
+  // 未入力の文字を格納（#untypedと連動）
   untypedField.textContent = untyped;
+
+  if(untyped === ''){
+    createText();
+  }
 };
 
 
@@ -65,3 +91,4 @@ const timer = () =>{
 
 // キー入力時にkeyPress関数を呼び出す為の処理
 document.addEventListener('keypress',keyPress);
+
