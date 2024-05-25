@@ -129,6 +129,7 @@ const keyPress = e => {
   }
 };
 
+
 // ランクの評価
 const rankCheck = score => {
 
