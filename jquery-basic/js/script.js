@@ -1,7 +1,10 @@
 $(function(){
   const h1Color =$('h1').text();
 const pText = $('p').text();
-const text2 = $('li[class^="sample"]').text();
+const text2 = $('li[class^="sample"]').text('中身を変更しました');
+$('li[class^="sample"]').css('color','red');
+const libBefore = $('li[class^="sample"]').before('<li class="add">リストを追加しました</li>');
+// $('.add').remove();
 console.log(h1Color);
 console.log(pText);
 console.log(text2);
@@ -47,6 +50,31 @@ const colorChange = $('li[class*="sample"]').on(
     }
   }
 );
+
+// const addClass1 = $('p').on('click',() =>{
+//   $('p').addClass('pBold');
+// });
+
+const toggleClass1 = $('p').on('click', () => {
+  $('p').toggleClass('pBold');
+});
+
+  $('li').on('dblclick' , () =>{
+
+    if($('p').hasClass('pBold')){
+  console.log('クラス在り');
+}else{
+    console.log('クラスなし');
+}
+});
+
+
+$('h1').on('click', () =>{
+  $('h1').addClass('fontColor');
+});
+
+
+
 });
 
 
