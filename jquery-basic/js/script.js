@@ -99,7 +99,18 @@ $(formValue = () =>{
       console.log(`趣味：${$(this).val()}`);
     });
     
+    
   });
+  
+  $('[name="username"]').on("input",function() {
+      let input = $(this).val();
+
+      if(input){
+        $('#check').prop('disabled',false);
+      }else{
+        $('#check').prop('disabled',true);
+      }
+    });
 });
 
 
