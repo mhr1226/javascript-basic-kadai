@@ -17,6 +17,41 @@
     <li class="sampleText1">text1</li>
     <li class="sampleText2">text2</li>
     <li class="Sampletext3">text3</li>
+
+    <form>
+      <!-- 名前 -->
+      <div>
+        <span>名前：</span>
+        <input type="text" name="username" />
+      </div>
+      <!-- 性別 -->
+      <div>
+        <span>性別：</span>
+        <input type="radio" name="gender" value="male">男
+        <input type="radio" name="gender" value="female">女
+        <input type="radio" name="gender" value="other">その他
+      </div>
+      <!-- 血液型 -->
+      <div>
+        <span>血液型：</span>
+        <select name="blood">
+          <option value="a">A型</option>
+          <option value="b">B型</option>
+          <option value="o">O型</option>
+          <option value="ab">AB型</option>
+          <option value="unknown">不明</option>
+        </select>
+      </div>
+      <!-- 趣味 -->
+      <div>
+        <span>趣味：</span>
+        <input type="checkbox" name="hobby" value="book">読書
+        <input type="checkbox" name="hobby" value="music">音楽
+        <input type="checkbox" name="hobby" value="movie">映画
+        <input type="checkbox" name="hobby" value="walk">散歩
+      </div>
+      <input type="button" id="check" value="check" />
+    </form>
   </main>
 </body>
 </html>

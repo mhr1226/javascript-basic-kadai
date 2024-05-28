@@ -73,8 +73,35 @@ $('h1').on('click', () =>{
   $('h1').addClass('fontColor');
 });
 
-
+$('h1').on('click', ()=>{
+  $('h1').hide();
+});
+$('p').on('dblclick', () =>{
+  $('h1').show();
+});
 
 });
+
+$(formValue = () =>{
+  $('#check').on('click', ()=>{
+    console.log(`名前：${$('[name="username"]').val()}`);
+
+    // ラジオボタンではどのボタンが選択されているかチェックの必要性がある
+    // その為、:checkedプロパティを使うことで取得できるようにする
+    console.log(`性別：${$('[name="gender"]:checked').val()}`);
+
+    console.log(`血液型：${$('[name="blood"]').val()}`);
+
+
+    // thisを使う時は通常の関数を使う（thisのスコープが外側になり、
+    // どこを参照しているのかが不明確もしくは見つからないため）
+    $('[name="hobby"]:checked').each(function() {
+      console.log(`趣味：${$(this).val()}`);
+    });
+    
+  });
+});
+
+
 
 
