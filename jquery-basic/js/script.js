@@ -98,19 +98,54 @@ $(formValue = () =>{
     $('[name="hobby"]:checked').each(function() {
       console.log(`趣味：${$(this).val()}`);
     });
+
+    console.log(`私の血液型は${$('[name="blood"] option:selected').text()}です`);
     
     
   });
-  
-  $('[name="username"]').on("input",function() {
-      let input = $(this).val();
+  // 全てのinputに対してイベント処理を入れる練習
+  // changeはform内において、入力内容が変更されたときに発生
+  $('form :input').on("input change",function() {
 
-      if(input){
-        $('#check').prop('disabled',false);
-      }else{
-        $('#check').prop('disabled',true);
+    // 全てのinput要素をチェックする為の関数
+    function inputCheck(){
+
+       // 全てのinput要素が入力されているか確認するフラグ
+    let allInput = true;
+      $('form :input[required]').each(function(){
+      // もし、空のインプットがあればfalseを返し、
+      // 処理を終了する
+      if($(this).val() === '' || ($(this).is(':checkbox, :radio') && $(`input[name="${$(this).attr('name')}"]:checked`).length === 0)){
+        allInput = false;
+        return false;
       }
     });
+
+    return allInput;
+    }
+    
+    $('#check').prop('disabled', !inputCheck());
+    });
+
+      
+
+    $('main p').css('color','green');
+
+    
+    $('[name="hobby"]').on('change',function(){
+      if($('[name="hobby"]:checked').length > 3){
+        $(this).prop('checked',false);
+        $('#vacation').after('<p id="color">趣味は３つまでです</p>');
+        $('#color').css('color','red');
+      }
+    });    
+
+    $('button').on('click',() =>{
+      $('button').after('<span id="green">クリックされました！</span>');
+      $('#green').css('color','green');
+    });
+
+  
 });
 
 

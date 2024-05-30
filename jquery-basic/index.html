@@ -8,7 +8,7 @@
 </head>
 <body>
   <!-- jquery呼び出し -->
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" defer></script>
   <script src="js\script.js" defer></script>
   <main>
     <h1>こんにちは</h1>
@@ -22,19 +22,20 @@
       <!-- 名前 -->
       <div>
         <span>名前：</span>
-        <input type="text" name="username" />
+        <input type="text" name="username" required />
       </div>
       <!-- 性別 -->
       <div>
         <span>性別：</span>
-        <input type="radio" name="gender" value="male">男
+
+        <label><input type="radio" name="gender" value="male" required>男</label>
         <input type="radio" name="gender" value="female">女
         <input type="radio" name="gender" value="other">その他
       </div>
       <!-- 血液型 -->
       <div>
         <span>血液型：</span>
-        <select name="blood">
+        <select name="blood" required>
           <option value="a">A型</option>
           <option value="b">B型</option>
           <option value="o">O型</option>
@@ -44,14 +45,16 @@
       </div>
       <!-- 趣味 -->
       <div>
-        <span>趣味：</span>
-        <input type="checkbox" name="hobby" value="book">読書
+        <span id="vacation">趣味(３つまで)：</span>
+        <input type="checkbox" name="hobby" value="book" >読書
         <input type="checkbox" name="hobby" value="music">音楽
         <input type="checkbox" name="hobby" value="movie">映画
         <input type="checkbox" name="hobby" value="walk">散歩
       </div>
       <input type="button" id="check" value="check" disabled="true" />
     </form>
+
+    <button>クリック</button>
   </main>
 </body>
 </html>
