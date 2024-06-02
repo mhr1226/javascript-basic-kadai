@@ -140,14 +140,97 @@ $(formValue = () =>{
       }
     });    
 
-    $('button').on('click',() =>{
-      $('button').after('<span id="green">クリックされました！</span>');
+    $('#btn').on('click',() =>{
+      $('#btn').after('<span id="green">クリックされました！</span>');
       $('#green').css('color','green');
     });
 
   
 });
 
+// // リストの自動生成練習
+// const fruits = {
+//   apple: 3,
+//   orange: 4,
+//   lemon: 7
+// }
+
+// const createFruitsList = (fruitsObject) => {
+//   let list = "<ul>";
+  
+//   for (let fruit in fruitsObject) {
+//     list += `<li>${fruit}: ${fruitsObject[fruit]}</li>`;
+//   }
+
+//   list += "</ul>";
+
+//   $('button').after(list);
+// }
+
+// $(document).ready(() => {
+//   createFruitsList(fruits);
+// });
+
+
+// コールバック関数の練習
+const numberValue = (a,b) =>{
+  return a * b;
+}
+
+const valueCheck = (numberValue,a,b) =>{
+
+  const result = numberValue(a,b);
+
+console.log(`numberValueの数値は、${result}です`);
+
+  if(result > 15){
+    console.log('15より大きいです');
+    return;
+  }
+  console.log('15より小さいです');
+}
+
+valueCheck(numberValue,3,4);
+
+
+// // フェードイン、アウトの制御
+$(() =>{
+
+  $('#fadeButton').on('click',() =>{
+    
+
+    // fadeメソッドを使用したアニメーション
+$('#box').fadeToggle(1000,() =>{
+      if($(this).is(':visible')){
+        alert('success,fadeIn!');
+      }else{
+        alert('success.fadeout!');
+      }
+    });
+
+  });
+});
+
+  // CSSを使用したアニメーション
+
+  // ※アニメーションを違うやり方で２種類記述すると、
+  // たとえコメントアウトしても上手く動作しなくなる
+    // $('#box').css('opacity',0);
+    // if($('#box').css('opacity') === '0'){
+    //   $('#box').css('opacity',1);
+    // }
+    // });
+
+
+
+$(() =>{
+  $('#slideButton').on('click',() =>{
+      $('#box').slideToggle(1000);
+      // if($('#box').is(':hidden')){
+      //   $('#box').slideDown();
+      // }
+});
+});
 
 
 
