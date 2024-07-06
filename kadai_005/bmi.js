@@ -1,5 +1,5 @@
 let bodyWeight = 68;
-// 変数をletと捉えているかconstと捉えているかがわからなった為
+// 変数をletと捉えているかconstと捉えているかがわからなかった為
 // 両方記述してます
 
 // const bodyWeight = 68;
